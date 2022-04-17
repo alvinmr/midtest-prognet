@@ -5,6 +5,17 @@
 @section('content')
     <div class="container">
         <div class="card">
+            {{-- error section --}}
+            @if ($errors->any())
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
+            {{-- error section --}}
             <div class="card-body">
                 <form action="{{ route('package.update', $package->id) }}" method="POST" enctype="multipart/form-data">
                     @csrf

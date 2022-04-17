@@ -14,6 +14,17 @@
     <div class="container">
         <div class="card">
             <div class="card-header">
+                {{-- error section --}}
+                @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
+                {{-- error section --}}
                 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addModal">
                     + Add Product
                 </button>
